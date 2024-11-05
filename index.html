@@ -1,0 +1,80 @@
+<html>
+   <head>
+    <title> Productos</title>
+	<meta charset="UTF-8"> <!-- caracteres especiales ñ y acento -->
+    <link rel="stylesheet" href="css/estilo.css"> <!-- cargar una hola de estilo CSS3 externa -->
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="manejomatriz.js"></script>
+	
+   </head>
+<body>
+
+<div class="page-nav">
+	<h1>MANTENEDOR PRODUCTOS</h1>
+	<h2>Jugos naturales 55</h2>
+</div>
+
+<section class="container">
+	
+
+<center>
+	
+
+	
+	<center><img class="Logo" src=img/loggo.jpeg></center>
+		<table align="center">
+		<tr>
+		<td>
+
+		<form name="miform" method="post" action="">
+
+		<fieldset class="datos" >
+		  <legend><strong>Datos </strong></legend>
+		  
+
+		  <label for="nombre">Nombre</label> <br> 
+		  <input name="nombre" id="nombre" size="50" maxlength="250" type="text"><hr>
+
+		  <label for="precio">Precio</label> 
+		  <input size="5" id="precio" name="precio" type="number" step="10"> CLP <hr>
+			<label for="codigo">Codigo</label> 
+			<input size="5" id="codigo" name="codigo" type="text"> <hr>
+		
+			<label for="descripcion">Descripcion</label> 
+			<input size="50" id="descripcion" name="descripcion" type="text"> <hr>
+
+			<label for="stock">Stock</label> 
+			<input size="5" id="stock" name="stock" type="number" step="01"> <hr>
+		</fieldset>
+
+
+		</td>
+		</tr>
+		</table>
+	</td> 
+	</tr>
+</center>
+<div class="boton">
+	<tr>
+	<td>
+	<input type="button" onclick="mostrarProducto()" value="Mostrar Productos">
+	</td>
+	<td>
+	<input type="button" onclick="insertarProducto()" value="Ingresar Productos">
+	</td>
+	<td>
+	<input type="button" onclick="actualizarProducto()" value="Actualizar Productos">
+	</td>
+	<td>
+	<input type="button" onclick="eliminarProducto()" value="Eliminar Productos">
+	</td>
+	</tr>
+		</form>
+	</table>
+</div>
+		
+</section>
+</body>
+
+</html>
+
