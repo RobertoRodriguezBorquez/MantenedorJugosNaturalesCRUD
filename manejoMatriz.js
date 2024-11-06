@@ -1,90 +1,71 @@
-  var matriz=[[]];
+var matriz = [];
 
-function mostrarProducto(){
-	var largo=matriz.length;
-	
-	for(var x=0; x<largo;x++){
-		for(var y=0; y<matriz[x].length;y++){
-			alert(matriz[x][y]);
-			//document.writeln(matriz[x][y]);
-		}
-	}
+function mostrarMensaje(mensaje) {
+    var messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = mensaje;
 }
 
-function insertarProducto(){
-	var nombre=document.getElementById("nombre").value;
-	var precio=document.getElementById("precio").value;
-	var codigo=document.getElementById("codigo").value;
-	var descripcion=document.getElementById("descripcion").value;
-	var stock=document.getElementById("stock").value;
-	matriz.push([nombre,precio,codigo,descripcion,stock]);
-	alert("Producto insertado");
-	document.getElementById("nombre").value="";
-	document.getElementById("precio").value="";
-	document.getElementById("codigo").value="";
-	document.getElementById("descripcion").value="";
-	document.getElementById("stock").value="";
-
+function mostrarProducto() {
+    var largo = matriz.length;
+    var mensaje = "<h3>Lista de Productos:</h3><ul>";
+    for (var x = 0; x < largo; x++) {
+        mensaje += `<li><strong>Nombre:</strong> ${matriz[x][0]}, 
+                        <strong>Categoría:</strong> ${matriz[x][1]}, 
+                        <strong>Precio:</strong> ${matriz[x][2]} CLP, 
+                        <strong>Código:</strong> ${matriz[x][3]}, 
+                        <strong>Descripción:</strong> ${matriz[x][4]}, 
+                        <strong>Stock:</strong> ${matriz[x][5]}</li>`;
+    }
+    mensaje += "</ul>";
+    mostrarMensaje(mensaje);
 }
 
-function actualizarProducto(){
-	//actualización de precio por medio del nombre
-	var nombre=document.getElementById("nombre").value;
-	var precio=document.getElementById("precio").value;
-	var codigo=document.getElementById("codigo").value;
-	var descripcion=document.getElementById("descripcion").value;
-	var stock=document.getElementById("stock").value;
-	
-	var largo=matriz.length;
-	for(var x=0; x<largo;x++){
-		for(var y=0; y<matriz[x].length;y++){
-			if(matriz[x][y]===codigo){
-				//ACTUALIZO DATOS DE PRODUCTO
-					matriz[x][0]=nombre;
-					matriz[x][1]=precio;
-					matriz[x][3]=descripcion;
-					matriz[x][4]=stock;
-				}
+function insertarProducto() {
+    var nombre = document.getElementById("nombre").value;
+    var categoria = document.getElementById("categoria").value;
+    var precio = document.getElementById("precio").value;
+    var codigo = document.getElementById("codigo").value;
+    var descripcion = document.getElementById("descripcion").value;
+    var stock = document.getElementById("stock").value;
 
-				alert("Datos actualizados correctamente ");
-			
-				// alert("Datoas actualizados correctamente "+nombre);
-				// alert("Datoas actualizados correctamente "+precio);
-				// alert("Datoas actualizados correctamente "+descripcion);
-				// alert("Datoas actualizados correctamente "+stock);
-		}
-
-	}
-	
-	document.getElementById("nombre").value="";
-	document.getElementById("precio").value="";
-	document.getElementById("codigo").value="";
-	document.getElementById("descripcion").value="";
-	document.getElementById("stock").value="";
+    matriz.push([nombre, categoria, precio, codigo, descripcion, stock]);
+    mostrarMensaje("Producto insertado con éxito.");
+    document.miform.reset();
 }
 
-function eliminarProducto(){
-//eliminar por codigo
-	var codigo=document.getElementById("codigo").value;
-	
-	var largo=matriz.length;
-	for(var x=0; x<largo;x++){
-		for(var y=0; y<matriz[x].length;y++){
-			 if(matriz[x][y]===codigo){
-		 	//ELIMINA DATOS DE PRODUCTO
-			 matriz.splice(x, 1);
-			 document.getElementById("codigo").value="";
-			 alert("Los datos relacionados con el codigo han sido eliminados con exito.");
+function actualizarProducto() {
+    var codigo = document.getElementById("codigo").value;
+    var actualizado = false;
+    for (var i = 0; i < matriz.length; i++) {
+        if (matriz[i][3] === codigo) {
+            matriz[i] = [
+                document.getElementById("nombre").value,
+                document.getElementById("categoria").value,
+                document.getElementById("precio").value,
+                codigo,
+                document.getElementById("descripcion").value,
+                document.getElementById("stock").value
+            ];
+            actualizado = true;
+            mostrarMensaje("Datos actualizados correctamente.");
+            break;
+        }
+    }
+    if (!actualizado) mostrarMensaje("Producto no encontrado.");
+    document.miform.reset();
+}
 
-
-			//  if(matriz[x][y]==codigo
-			// 	){
-			//  	matriz.splice([x][y],2);
-			//  	alert("Producto eliminado");
-			//  	document.getElementById("codigo").value="";
-			}
-
-		}
-	}
-	
+function eliminarProducto() {
+    var codigo = document.getElementById("codigo").value;
+    var eliminado = false;
+    for (var i = 0; i < matriz.length; i++) {
+        if (matriz[i][3] === codigo) {
+            matriz.splice(i, 1);
+            eliminado = true;
+            mostrarMensaje("Producto eliminado con éxito.");
+            break;
+        }
+    }
+    if (!eliminado) mostrarMensaje("Producto no encontrado.");
+    document.miform.reset();
 }

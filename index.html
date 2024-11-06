@@ -1,80 +1,58 @@
-<html>
-   <head>
-    <title> Productos</title>
-	<meta charset="UTF-8"> <!-- caracteres especiales ñ y acento -->
-    <link rel="stylesheet" href="css/estilo.css"> <!-- cargar una hola de estilo CSS3 externa -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="manejomatriz.js"></script>
-	
-   </head>
+    <script type="text/javascript" src="manejomatriz.js" defer></script>
+</head>
 <body>
+    <div class="page-nav">
+        <h1>MANTENEDOR PRODUCTOS</h1>
+        <h2>Jugos Naturales 55</h2>
+    </div>
 
-<div class="page-nav">
-	<h1>MANTENEDOR PRODUCTOS</h1>
-	<h2>Jugos naturales 55</h2>
-</div>
+    <section class="container">
+        <div id="messageContainer" class="message-container"></div>
+        <center>
+            <img class="logo" src="img/loggo.jpeg" alt="Logo">
+            <form name="miform" class="form" method="post" action="">
+                <fieldset class="datos">
+                    <legend><strong>Datos</strong></legend>
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" id="nombre" size="50" maxlength="250" type="text">
+                    
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" name="categoria">
+                        <option value="Bebida">Bebida</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Postre">Postre</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    
+                    <label for="precio">Precio</label>
+                    <input id="precio" name="precio" type="number" step="10"> CLP
+                    
+                    <label for="codigo">Código</label>
+                    <input id="codigo" name="codigo" type="text">
+                    
+                    <label for="descripcion">Descripción</label>
+                    <input id="descripcion" name="descripcion" type="text">
+                    
+                    <label for="stock">Stock</label>
+                    <input id="stock" name="stock" type="number" step="1">
+                </fieldset>
+            </form>
+        </center>
 
-<section class="container">
-	
-
-<center>
-	
-
-	
-	<center><img class="Logo" src=img/loggo.jpeg></center>
-		<table align="center">
-		<tr>
-		<td>
-
-		<form name="miform" method="post" action="">
-
-		<fieldset class="datos" >
-		  <legend><strong>Datos </strong></legend>
-		  
-
-		  <label for="nombre">Nombre</label> <br> 
-		  <input name="nombre" id="nombre" size="50" maxlength="250" type="text"><hr>
-
-		  <label for="precio">Precio</label> 
-		  <input size="5" id="precio" name="precio" type="number" step="10"> CLP <hr>
-			<label for="codigo">Codigo</label> 
-			<input size="5" id="codigo" name="codigo" type="text"> <hr>
-		
-			<label for="descripcion">Descripcion</label> 
-			<input size="50" id="descripcion" name="descripcion" type="text"> <hr>
-
-			<label for="stock">Stock</label> 
-			<input size="5" id="stock" name="stock" type="number" step="01"> <hr>
-		</fieldset>
-
-
-		</td>
-		</tr>
-		</table>
-	</td> 
-	</tr>
-</center>
-<div class="boton">
-	<tr>
-	<td>
-	<input type="button" onclick="mostrarProducto()" value="Mostrar Productos">
-	</td>
-	<td>
-	<input type="button" onclick="insertarProducto()" value="Ingresar Productos">
-	</td>
-	<td>
-	<input type="button" onclick="actualizarProducto()" value="Actualizar Productos">
-	</td>
-	<td>
-	<input type="button" onclick="eliminarProducto()" value="Eliminar Productos">
-	</td>
-	</tr>
-		</form>
-	</table>
-</div>
-		
-</section>
+        <div class="boton-container">
+            <button onclick="mostrarProducto()">Mostrar Productos</button>
+            <button onclick="insertarProducto()">Ingresar Productos</button>
+            <button onclick="actualizarProducto()">Actualizar Productos</button>
+            <button onclick="eliminarProducto()">Eliminar Productos</button>
+        </div>
+    </section>
 </body>
-
 </html>
-
